@@ -5,6 +5,6 @@ port = serial.Serial("/dev/ttyS0", baudrate=9600, timeout=5)
 
 while True: 
     print('next')
-    recv = port.read(32)
+    recv = port.read(64)
     #port.write(recv)
     print(repr(recv))
