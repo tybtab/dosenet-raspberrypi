@@ -21,4 +21,4 @@ while True:
     print('next')
     recv = port.read(32)
     print(repr(recv))
-    print(toStr(repr(recv))
+    print(toStr(repr(recv)))
