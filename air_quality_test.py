@@ -9,4 +9,4 @@ while True:
     recv = port.read(32)
     #port.write(recv)
     print(repr(recv))
-    print(ast.literal_eval(recv))
+    print(type(recv))
