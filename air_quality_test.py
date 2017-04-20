@@ -7,5 +7,5 @@ recv = 5
 while True: 
     print('in loop')
     recv = port.read(3)
-    #port.write(repr(recv))
-    print(recv)
+    port.write(repr(recv))
+    #print(recv)
