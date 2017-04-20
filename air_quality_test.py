@@ -14,11 +14,14 @@ def toHex(s):
     
     return reduce(lambda x,y:x+y, lst)
 
+def toStr(s):
+    return s and chr(atoi(s[:2], base=16)) + toStr(s[2:]) or ''
+
 while True: 
     print('next')
     recv = port.read(32)
     #port.write(recv)
     print(repr(recv))
-    print(type(toHex(recv)))
+    print(toStr(repr(recv))
     #print(len(recv))
     #print(recv[0:3])
