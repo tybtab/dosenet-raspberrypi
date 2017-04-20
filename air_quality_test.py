@@ -19,6 +19,6 @@ while True:
     recv = port.read(32)
     #port.write(recv)
     print(repr(recv))
-    print(toHex(recv))
+    print(type(toHex(recv)))
     #print(len(recv))
     #print(recv[0:3])
