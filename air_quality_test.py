@@ -10,4 +10,4 @@ while True:
     #port.write(recv)
     print(repr(recv))
     print(len(recv))
-    print(recv[2])
+    print(recv[0:3])
