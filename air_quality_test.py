@@ -5,5 +5,5 @@ port = serial.Serial("/dev/ttyAMA0", baudrate=9600, timeout=3)
 
 while True: 
     print('in loop')
-    recv = port.read(10)
+    recv = port.readline()
     print(recv)
