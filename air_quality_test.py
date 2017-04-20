@@ -8,4 +8,4 @@ while True:
     recv = port.read(32)
     #port.write(recv)
     print(repr(recv))
-    print(str(int(recv, 16)))
+    print(str(int(recv, 32)))
