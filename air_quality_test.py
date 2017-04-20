@@ -20,8 +20,5 @@ def toStr(s):
 while True: 
     print('next')
     recv = port.read(32)
-    #port.write(recv)
     print(repr(recv))
     print(toStr(repr(recv))
-    #print(len(recv))
-    #print(recv[0:3])
