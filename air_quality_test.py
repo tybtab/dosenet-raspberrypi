@@ -7,5 +7,5 @@ while True:
     print('next')
     recv = port.read(32)
     print(repr(recv))
-    print(repr(recv)[3:7].decode('hex'))
-    print(repr(recv).decode("hex"))
+    #print(repr(recv)[3:7].decode('hex'))
+    print(repr(recv).decode("utf-8"))
