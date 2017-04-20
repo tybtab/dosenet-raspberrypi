@@ -15,7 +15,7 @@ def toHex(s):
     return reduce(lambda x,y:x+y, lst)
 
 def toStr(s):
-    return s and chr(int(s[:2])) + toStr(s[2:]) or ''
+    return s and chr(int(s[:2], base=10)) + toStr(s[2:]) or ''
 
 while True: 
     print('next')
