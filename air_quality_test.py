@@ -6,4 +6,4 @@ port = serial.Serial("/dev/ttyAMA0", baudrate=9600, timeout=1.5)
 while True: 
     print('in loop')
     recv = port.readline()
-    print(recv)
+    port.write("\r\nYou sent:" + repr(rcv))
