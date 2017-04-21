@@ -10,6 +10,7 @@ while True:
     print(type(recv))
     x = binascii.hexlify(recv).decode('utf8')
     print(x)
+    print(type(x))
     # x = binascii.unhexlify(recv).decode('utf8')
     #print(unpack(recv))
     #print(repr(recv)[3:7].decode('hex'))
