@@ -13,6 +13,7 @@ while True:
     print(type(x))
     x = binascii.unhexlify(x).decode('utf8')
     print(x)
+    print(len(x))
     #print(unpack(recv))
     #print(repr(recv)[3:7].decode('hex'))
     #print(repr(recv).decode("utf-8"))
