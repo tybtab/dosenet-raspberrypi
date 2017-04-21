@@ -13,7 +13,6 @@ while True:
     print(x)
     #print(type(x))
     #print(x[0:20])
-    print(type(x.encode('ascii', 'ignore')))
     #x = binascii.unhexlify(x[0:len(x)-2]).decode('utf8')
     #print(x)
     #print(len(x))
