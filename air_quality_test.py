@@ -12,4 +12,4 @@ while True:
     #print(unpack(recv))
     #print(repr(recv)[3:7].decode('hex'))
     #print(repr(recv).decode("utf-8"))
-    print(x)
+   #print(x)
