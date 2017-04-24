@@ -7,6 +7,7 @@ port = serial.Serial("/dev/ttyS0", baudrate=9600, timeout=5)
 while True: 
     print('next')
     recv = port.read(32)
+    print(recv)
     print(recv[5], recv[6])
     #x = binascii.b2a_uu(recv)
     #print(x)
