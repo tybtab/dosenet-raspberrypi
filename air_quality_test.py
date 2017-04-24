@@ -7,7 +7,7 @@ print('Running Test Script')
 port = serial.Serial("/dev/ttyS0", baudrate=9600, timeout=5)
 while True: 
     print('next')
-    text = repr(port.read(32))
+    text = port.read(32)
     print(text)
     buffer = [ord(c) for c in text]
     print(buffer)
