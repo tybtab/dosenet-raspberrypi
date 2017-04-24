@@ -17,7 +17,7 @@ while True:
     checkbyte = (buffer[30]<<8)+buffer[31]
     print(sumation)
     print(checkbyte)
-    if sumation == (buffer[30]<<8+buffer[31]):
+    if sumation == ((buffer[30]<<8)+buffer[31]):
         #print('Sum check complete')
         buf = buffer[1:32]
 
