@@ -8,13 +8,15 @@ port = serial.Serial("/dev/ttyS0", baudrate=9600, timeout=5)
 while True: 
     print('next')
     text = port.read(32)
-    print(text)
+    #print(text)
     buffer = [ord(c) for c in text]
-    print(buffer)
-    print(len(buffer))
+    #print(buffer)
+    #print(len(buffer))
     #Check sum with last byte of list 
-    sumation = sum(buffer[0:31])
-
+    sumation = sum(buffer[0:30])
+    checkbyte = (buffer[30]<<8)+buffer[31]
+    print(sumation)
+    print(checkbyte)
     if sumation == (buffer[30]<<8+buffer[31]):
         #print('Sum check complete')
         buf = buffer[1:32]
