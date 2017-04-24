@@ -32,7 +32,7 @@ def hexShow(argv):
     print ('hexShow:',result)
   
 t = serial.Serial('/dev/ttyS0',9600)  
-t.setTimeout(1.5)
+#t.setTimeout(1.5)
 while True:
     t.flushInput()
     time.sleep(0.5)
