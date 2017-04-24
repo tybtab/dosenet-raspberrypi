@@ -15,7 +15,7 @@ while True:
     #Check sum with last byte of list 
     sumation = sum(buffer[0:31])
 
-    if sumation == sum(buffer[30:32]):
+    if sumation == (buffer[30]<<8+buffer[31]):
         #print('Sum check complete')
         buf = buffer[1:32]
 
