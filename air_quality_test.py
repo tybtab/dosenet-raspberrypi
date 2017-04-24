@@ -14,6 +14,9 @@ while True:
     #else:
         #print('False')
     #print(recv)
+    print(recv)
+    print(repr(recv))
+    
     print(binascii.b2a_uu(recv))
     #print(binascii.b2a_uu(recv[5]), binascii.b2a_uu(recv[6]))
     #x = binascii.b2a_uu(recv)
