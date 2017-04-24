@@ -10,7 +10,7 @@ while True:
     text = port.read(32)
     #print(text)
     buffer = [ord(c) for c in text]
-    #print(buffer)
+    print(buffer)
     #print(len(buffer))
     #Check sum with last byte of list 
     sumation = sum(buffer[0:30])
