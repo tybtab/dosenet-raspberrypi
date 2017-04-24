@@ -9,5 +9,5 @@ while True:
     recv = port.read(32)
     print(repr(recv))
     x = recv.encode('hex')
-    print(x.decode('hex'))
+    print(x.decode('ascii'))
     
