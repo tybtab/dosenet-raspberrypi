@@ -7,55 +7,45 @@ print('Running Test Script')
 port = serial.Serial("/dev/ttyS0", baudrate=9600, timeout=5)
 while True: 
     print('next')
-    recv = port.read(32)
-    #print(repr(recv))
-    #if(recv[0]==0xaa and recv[1]==0xc0):
-        #print('True')
-    #else:
-        #print('False')
-    #print(recv)
-    print(recv)
-    print(repr(recv))
-    
-    print(binascii.b2a_uu(recv))
-    #print(binascii.b2a_uu(recv[5]), binascii.b2a_uu(recv[6]))
-    #x = binascii.b2a_uu(recv)
-    #print(x)
-    #print(recv.decode('hex'))
-    #print(repr(recv))
-    #x = recv.encode('hex')
-    #print(x.decode('ascii'))
+    text = repr(port.read(32))
+    buffer = [ord(c) for c in text]
+    print(buffer)
+    #Check sum with last byte of list 
+    sumation = sum(buffer[0:31])
+
+    if sumation == sum(buffer[30:32]):
+        print('Sum check complete')
+        buf = buffer[1:32]
+
+        # Get concentrations ug/m3
+        PM01Val=((buf[3]<<8) + buf[4])
+        PM25Val=((buf[5]<<8) + buf[6])
+        PM10Val=((buf[7]<<8) + buf[8])
+
+        # Get number of particles in 0.1 L of air above specific diameters
 
 
-'''
-#http://www.instructables.com/id/Using-Pm25-Sensor-With-Raspberry-Pi/
-import serial
-import time
-def hexShow(argv):  
-    result = ''  
-    hLen = len(argv)  
-    for i in range(hLen):  
-        hvol = argv[i]
-        hhex = '%02x'%hvol  
-        result += hhex+' '  
-    print ('hexShow:',result)
-  
-t = serial.Serial('/dev/ttyS0',9600)  
-#t.setTimeout(1.5)
-while True:
-    t.flushInput()
-    time.sleep(0.5)
-    retstr = t.read(10)
-    #hexShow(retstr)
-    if len(retstr)==10:
-        if(retstr[0]==0xaa and retstr[1]==0xc0):
-            checksum=0
-            for i in range(6):
-                checksum=checksum+int(retstr[2+i])
-            if checksum%256 == retstr[8]:
-                pm25=int(retstr[2])+int(retstr[3])*256
-                pm10=int(retstr[4])+int(retstr[5])*256
-                print ("pm2.5:%.1f pm10 %.1f"%(pm25/10.0,pm10/10.0))
-'''
+        P3  =((buf[15]<<8) + buf[16])
+        P5  =((buf[17]<<8) + buf[18])
+        P10 =((buf[19]<<8) + buf[20])
+        P25 =((buf[21]<<8) + buf[22])
+        P50 =((buf[23]<<8) + buf[24])
+        P100=((buf[25]<<8) + buf[26])
 
-    
+        # Print Concentrations [ug/m3]
+        print('\nConcentration of Particulate Matter [ug/m3]\n')
+        print('PM 1.0 = ' + repr(PM01Val) +' ug/m3')
+        print('PM 2.5 = ' + repr(PM25Val) +' ug/m3')
+        print('PM 10  = ' + repr(PM10Val) +' ug/m3\n')
+
+        # Print number of particles in 0.1 L of air over specific diamaters
+        print('Number of particles in 0.1 L of air with specific diameter\n')
+        print('#Particles, diameter over 0.3 um = ' + repr(P3))
+        print('#Particles, diameter over 0.5 um = ' + repr(P5))
+        print('#Particles, diameter over 1.0 um = ' + repr(P10))
+        print('#Particles, diameter over 2.5 um = ' + repr(P25))
+        print('#Particles, diameter over 5.0 um = ' + repr(P50))
+        print('#Particles, diameter over 10  um = ' + repr(P100))
+
+    else:
+        print('Check Sum Failed')
