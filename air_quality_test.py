@@ -8,5 +8,5 @@ while True:
     print('next')
     recv = port.read(32)
     print(repr(recv))
-    #print(recv.encode('hex'))
+    print(recv.encode('hex'))
     
