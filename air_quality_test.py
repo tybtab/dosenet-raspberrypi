@@ -8,6 +8,7 @@ port = serial.Serial("/dev/ttyS0", baudrate=9600, timeout=5)
 while True: 
     print('next')
     recv = port.read(10)
+    print(recv)
     if(recv[0]==0xaa and recv[1]==0xc0):
         print('True')
     else:
