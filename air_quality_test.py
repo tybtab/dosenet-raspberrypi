@@ -8,6 +8,7 @@ while True:
     print('next')
     recv = port.read(32)
     print(recv)
+    print(binascii.b2a_uu(recv))
     print(binascii.b2a_uu(recv[5]), binascii.b2a_uu(recv[6]))
     #x = binascii.b2a_uu(recv)
     #print(x)
