@@ -37,7 +37,7 @@ while True:
     t.flushInput()
     time.sleep(0.5)
     retstr = t.read(10)
-    hexShow(retstr)
+    #hexShow(retstr)
     if len(retstr)==10:
         if(retstr[0]==0xaa and retstr[1]==0xc0):
             checksum=0
