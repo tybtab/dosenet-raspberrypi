@@ -10,5 +10,5 @@ while True:
     print(recv.decode())
     #print(repr(recv))
     #x = recv.encode('hex')
-    p#rint(x.decode('ascii'))
+    #print(x.decode('ascii'))
     
