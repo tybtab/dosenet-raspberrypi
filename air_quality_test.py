@@ -7,14 +7,14 @@ print('Running Test Script')
 port = serial.Serial("/dev/ttyS0", baudrate=9600, timeout=5)
 while True: 
     print('next')
-    recv = port.read(10)
-    print(repr(recv))
-    if(recv[0]==0xaa and recv[1]==0xc0):
-        print('True')
-    else:
-        print('False')
+    recv = port.read(32)
+    #print(repr(recv))
+    #if(recv[0]==0xaa and recv[1]==0xc0):
+        #print('True')
+    #else:
+        #print('False')
     #print(recv)
-    #print(binascii.b2a_uu(recv))
+    print(binascii.b2a_uu(recv))
     #print(binascii.b2a_uu(recv[5]), binascii.b2a_uu(recv[6]))
     #x = binascii.b2a_uu(recv)
     #print(x)
